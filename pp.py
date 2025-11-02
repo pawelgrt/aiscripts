@@ -2,6 +2,29 @@ import boto3
 import json
 from botocore.exceptions import ClientError, NoCredentialsError
 
+class IntervalsConnector:
+    def __init__(self, region_name='eu-central-1'):
+        """
+        Initialize Bedrock client
+        """
+        self.region_name = region_name
+        self.user_id = ""
+        self.api_id = ""
+        self.client = self._create_client()
+    
+    def list_traings():
+        try:
+            
+            print("✅ Intervals client created successfully")
+            return client
+        except NoCredentialsError:
+            print("❌  Intervals credentials not found")
+            raise
+        except Exception as e:
+            print(f"❌ Intervals Error creating client: {e}")
+            raise
+
+
 class BedrockConnector:
     def __init__(self, region_name='eu-central-1'):
         """
