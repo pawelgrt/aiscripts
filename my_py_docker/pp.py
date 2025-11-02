@@ -10,13 +10,13 @@ class IntervalsConnector:
         self.region_name = region_name
         self.user_id = ""
         self.api_id = ""
-        self.client = self._create_client()
+       
     
     def list_traings():
         try:
-            
+
             print("✅ Intervals client created successfully")
-            return client
+            return 0
         except NoCredentialsError:
             print("❌  Intervals credentials not found")
             raise

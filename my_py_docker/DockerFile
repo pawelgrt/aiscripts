@@ -1,0 +1,20 @@
+# Używamy lekkiego obrazu Pythona
+FROM python:3.12-slim
+
+# Ustaw katalog roboczy
+WORKDIR /app
+
+# Zainstaluj AWS CLI i boto3 (SDK dla Pythona)
+RUN apt-get update && apt-get install -y \
+    curl unzip groff less && \
+    pip install --no-cache-dir awscli boto3 && \
+    rm -rf /var/lib/apt/lists/*
+
+# Skopiuj aplikację do kontenera
+COPY pp.py .
+
+# Ustaw zmienne środowiskowe (można nadpisać przy uruchomieniu)
+ENV AWS_DEFAULT_REGION=eu-central-1
+
+# Komenda startowa
+CMD ["python", "pp.py"]
